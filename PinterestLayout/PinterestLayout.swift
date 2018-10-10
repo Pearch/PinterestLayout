@@ -17,7 +17,7 @@ public class PinterestLayout: UICollectionViewLayout {
     /**
      Delegate.
      */
-    public var delegate: PinterestLayoutDelegate!
+    public weak var delegate: PinterestLayoutDelegate?
     /**
      Number of columns.
      */
@@ -87,7 +87,7 @@ public class PinterestLayout: UICollectionViewLayout {
             for section in 0..<numberOfSections {
                 let numberOfItems = self.numberOfItems(inSection: section)
                 
-                if let headerSize = delegate.collectionView?(
+                if let headerSize = delegate?.collectionView?(
                     collectionView: collectionView,
                     sizeForSectionHeaderViewForSection: section
                     ) {
@@ -119,17 +119,17 @@ public class PinterestLayout: UICollectionViewLayout {
                     
                     let column = yOffsets.index(of: yOffsets.min() ?? 0) ?? 0
                     
-                    let imageHeight = delegate.collectionView(
+                    let imageHeight = delegate?.collectionView(
                         collectionView: collectionView,
                         heightForImageAtIndexPath: indexPath,
                         withWidth: cellWidth
                     )
-                    let annotationHeight = delegate.collectionView(
+                    let annotationHeight = delegate?.collectionView(
                         collectionView: collectionView,
                         heightForAnnotationAtIndexPath: indexPath,
                         withWidth: cellWidth
                     )
-                    let cellHeight = cellPadding + imageHeight + annotationHeight + cellPadding
+                    let cellHeight = cellPadding + (imageHeight ?? 100) + (annotationHeight ?? 100) + cellPadding
                     
                     let frame = CGRect(
                         x: xOffsets[column],
@@ -143,14 +143,14 @@ public class PinterestLayout: UICollectionViewLayout {
                         forCellWith: indexPath
                     )
                     attributes.frame = insetFrame
-                    attributes.imageHeight = imageHeight
+                    attributes.imageHeight = imageHeight ?? 0
                     cache.append(attributes)
                     
                     contentHeight = max(contentHeight, frame.maxY)
                     yOffsets[column] = yOffsets[column] + cellHeight
                 }
                 
-                if let footerSize = delegate.collectionView?(
+                if let footerSize = delegate?.collectionView?(
                     collectionView: collectionView,
                     sizeForSectionFooterViewForSection: section
                     ) {
