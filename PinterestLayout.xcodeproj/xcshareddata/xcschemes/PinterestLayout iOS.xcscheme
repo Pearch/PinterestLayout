@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CF279A6F213E5C81004CB693"
-               BuildableName = "PinterestLayout_iOS.framework"
+               BuildableName = "PinterestLayout.framework"
                BlueprintName = "PinterestLayout iOS"
                ReferencedContainer = "container:PinterestLayout.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CF279A6F213E5C81004CB693"
-            BuildableName = "PinterestLayout_iOS.framework"
+            BuildableName = "PinterestLayout.framework"
             BlueprintName = "PinterestLayout iOS"
             ReferencedContainer = "container:PinterestLayout.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CF279A6F213E5C81004CB693"
-            BuildableName = "PinterestLayout_iOS.framework"
+            BuildableName = "PinterestLayout.framework"
             BlueprintName = "PinterestLayout iOS"
             ReferencedContainer = "container:PinterestLayout.xcodeproj">
          </BuildableReference>
